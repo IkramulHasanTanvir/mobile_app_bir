@@ -1,0 +1,80 @@
+PODS:
+  - app_links (0.0.2):
+    - Flutter
+  - Flutter (1.0.0)
+  - geolocator_apple (1.2.0):
+    - Flutter
+  - "no_screenshot (0.0.1+4)":
+    - Flutter
+    - ScreenProtectorKit (~> 1.3.1)
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - permission_handler_apple (9.3.0):
+    - Flutter
+  - ScreenProtectorKit (1.3.1)
+  - share_plus (0.0.1):
+    - Flutter
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - url_launcher_ios (0.0.1):
+    - Flutter
+  - webview_flutter_wkwebview (0.0.1):
+    - Flutter
+    - FlutterMacOS
+
+DEPENDENCIES:
+  - app_links (from `.symlinks/plugins/app_links/ios`)
+  - Flutter (from `Flutter`)
+  - geolocator_apple (from `.symlinks/plugins/geolocator_apple/ios`)
+  - no_screenshot (from `.symlinks/plugins/no_screenshot/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+  - share_plus (from `.symlinks/plugins/share_plus/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
+  - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
+  - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/darwin`)
+
+SPEC REPOS:
+  trunk:
+    - ScreenProtectorKit
+
+EXTERNAL SOURCES:
+  app_links:
+    :path: ".symlinks/plugins/app_links/ios"
+  Flutter:
+    :path: Flutter
+  geolocator_apple:
+    :path: ".symlinks/plugins/geolocator_apple/ios"
+  no_screenshot:
+    :path: ".symlinks/plugins/no_screenshot/ios"
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
+  share_plus:
+    :path: ".symlinks/plugins/share_plus/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
+  url_launcher_ios:
+    :path: ".symlinks/plugins/url_launcher_ios/ios"
+  webview_flutter_wkwebview:
+    :path: ".symlinks/plugins/webview_flutter_wkwebview/darwin"
+
+SPEC CHECKSUMS:
+  app_links: e7a6750a915a9e161c58d91bc610e8cd1d4d0ad0
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  geolocator_apple: 9bcea1918ff7f0062d98345d238ae12718acfbc1
+  no_screenshot: 67d110f12466f4913b488803d4e498d03ef2889e
+  path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
+  permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
+  ScreenProtectorKit: 83a6281b02c7a5902ee6eac4f5045f674e902ae4
+  share_plus: 8b6f8b3447e494cca5317c8c3073de39b3600d1f
+  shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
+  url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
+  webview_flutter_wkwebview: 0982481e3d9c78fd5c6f62a002fcd24fc791f1e4
+
+PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
+
+COCOAPODS: 1.16.2
