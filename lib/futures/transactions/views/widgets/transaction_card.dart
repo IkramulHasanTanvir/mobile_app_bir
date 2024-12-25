@@ -15,11 +15,13 @@ class TransactionCard extends StatelessWidget {
     required this.billed,
     required this.received,
     required this.status,
+    this.onTap,
   });
 
   final String billNo, date, accountTitle, totalProduct, received, status;
 
   final double billed;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +73,10 @@ class TransactionCard extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 )),
               ),
-              const Icon(Icons.print_outlined, size: 18),
+              InkWell(
+                onTap: onTap,
+                child: const Icon(Icons.print_outlined, size: 18),
+              ),
             ],
           ),
           const SizedBox(height: 8),
