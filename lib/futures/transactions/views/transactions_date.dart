@@ -23,7 +23,7 @@ class _TransactionsDateState extends State<TransactionsDate> {
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
+      lastDate: DateTime.now(),
       builder: (BuildContext context, Widget? child) {
         return Theme(
           data: Theme.of(context).copyWith(
@@ -51,17 +51,18 @@ class _TransactionsDateState extends State<TransactionsDate> {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.sizeOf(context);
     return Scaffold(
       appBar: CustomAppBar(title: 'Transactions'.tr, backButtonShow: false),
       body: Container(
         color: Colors.white,
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: EdgeInsets.symmetric(horizontal: size.width * 0.032),
         child: Form(
           key: _globalKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 24),
+              SizedBox(height: size.height * 0.024),
               CustomTextField(
                   title: 'From Date'.tr,
                   formField: TextFormField(
@@ -83,33 +84,34 @@ class _TransactionsDateState extends State<TransactionsDate> {
                     },
                   )),
               CustomTextField(
-                  title: 'To Date'.tr,
-                  formField: TextFormField(
-                    controller: _toDateController,
-                    decoration: InputDecoration(
-                      hintText: 'Top to Select From Date',
-                      suffixIcon: IconButton(
-                        icon: const Icon(Icons.calendar_month),
-                        onPressed: () {
-                          _selectDate(context, _toDateController);
-                        },
-                      ),
+                title: 'To Date'.tr,
+                formField: TextFormField(
+                  controller: _toDateController,
+                  decoration: InputDecoration(
+                    hintText: 'Top to Select From Date',
+                    suffixIcon: IconButton(
+                      icon: const Icon(Icons.calendar_month),
+                      onPressed: () {
+                        _selectDate(context, _toDateController);
+                      },
                     ),
-                    validator: (String? value) {
-                      if (value?.trim().isEmpty == true) {
-                        return "Form Incomplete".tr;
-                      }
-                      return null;
-                    },
                   ),
+                  validator: (String? value) {
+                    if (value?.trim().isEmpty == true) {
+                      return "Form Incomplete".tr;
+                    }
+                    return null;
+                  },
+                ),
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: size.height * 0.024),
               ElevatedButton(
                 onPressed: () {
-                  if (_globalKey.currentState?.validate() == true){
+                  if (_globalKey.currentState?.validate() == true) {
                     Get.to(TransactionsInfo(
-                      fromDate: _fromDateController.text,
-                      toDate: _toDateController.text));}
+                        fromDate: _fromDateController.text,
+                        toDate: _toDateController.text));
+                  }
                 },
                 child: Text(
                   'View Report'.tr,

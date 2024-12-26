@@ -1,11 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:printing/printing.dart';
-import 'package:pdf/widgets.dart' as pw;
-import 'package:pdf/pdf.dart';
+import 'package:mobile_app_bir/futures/transactions/views/widgets/print_dialog.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_app_bir/app/utils/constants.dart';
 import 'package:mobile_app_bir/common/widgets/custom_app_bar.dart';
@@ -120,59 +115,8 @@ class _TransactionsInfoState extends State<TransactionsInfo> {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text('Print Transaction'),
-                          content: const Text('Would you like to print this transaction?'),
-                          actions: [
-                            ElevatedButton(
-                              onPressed: () async {
-                                Navigator.of(context).pop(); // Close dialog
-                                // Printing logic
-                                await Printing.layoutPdf(
-                                  onLayout: (format) async {
-                                    final pdf = pw.Document();
-                                    pdf.addPage(
-                                      pw.Page(
-                                        pageFormat: PdfPageFormat.a4,
-                                        build: (pw.Context context) {
-                                          return pw.Column(
-                                            crossAxisAlignment: pw.CrossAxisAlignment.start,
-                                            children: [
-                                              pw.Text(
-                                                'Transaction Details',
-                                                style: pw.TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: pw.FontWeight.bold,
-                                                ),
-                                              ),
-                                              pw.SizedBox(height: 10),
-                                              pw.Text('Bill No: ${transaction['billNo']}'),
-                                              pw.Text('Date: ${transaction['date']}'),
-                                              pw.Text('Account Title: ${transaction['accountTitle']}'),
-                                              pw.Text('Total Products: ${transaction['totalProduct']}'),
-                                              pw.Text('Billed Amount: ${transaction['billed']}'),
-                                              pw.Text('Received Amount: ${transaction['received']}'),
-                                              pw.Text('Status: ${transaction['status']}'),
-                                            ],
-                                          );
-                                        },
-                                      ),
-                                    );
-
-// Save the document
-                                    final output = await getTemporaryDirectory();
-                                    final file = File("${output.path}/transaction.pdf");
-                                    await file.writeAsBytes(await pdf.save());
-                                    ;
-
-                                    return pdf.save();
-                                  },
-                                );
-                              },
-                              child: const Text('Print'),
-                            ),
-                          ],
-                        );
+                        return PrintDialog(
+                            transaction: transaction, size: size);
                       },
                     );
                   },

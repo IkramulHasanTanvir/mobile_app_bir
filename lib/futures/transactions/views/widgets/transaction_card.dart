@@ -16,12 +16,14 @@ class TransactionCard extends StatelessWidget {
     required this.received,
     required this.status,
     this.onTap,
+    this.isDialog = false,
   });
 
   final String billNo, date, accountTitle, totalProduct, received, status;
 
   final double billed;
   final VoidCallback? onTap;
+  final bool isDialog;
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +45,7 @@ class TransactionCard extends StatelessWidget {
                 blurRadius: 5)
           ]),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
@@ -106,6 +109,16 @@ class TransactionCard extends StatelessWidget {
                   ),
                 ],
               ),
+              if (isDialog)
+                Padding(
+                  padding: const EdgeInsets.only(right:16.0),
+                  child: Text(
+                    status.toUpperCase(),
+                    style: TextStyle(
+                        color: status == 'paid' ? successColor : primaryColor),
+                  ),
+                ),
+              if(isDialog == false)
               TransactionButton(
                   onTap: () {
                     if (status != 'paid') {
