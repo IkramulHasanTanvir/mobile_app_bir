@@ -5,13 +5,11 @@ import 'package:mobile_app_bir/app/utils/constants.dart';
 class ButtonTile extends StatelessWidget {
   const ButtonTile({
     super.key,
-    required this.type,
     required this.title,
     required this.onTap,
     required this.icon,
   });
 
-  final String type;
   final String title;
   final VoidCallback onTap;
   final IconData icon;

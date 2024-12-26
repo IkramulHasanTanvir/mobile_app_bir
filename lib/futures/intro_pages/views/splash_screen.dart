@@ -72,6 +72,17 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ),
           Positioned(
+            top: size.height * 0.48,
+            left: 0,
+            right: 0,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: size.height * 0.1),
+              child: LinearProgressIndicator(
+                color: Color(0xFFED7561),
+              ),
+            )
+          ),
+          Positioned(
             top: size.height * 0.6,
             left: 0,
             right: 0,
